@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* COMMON */
+body {
+    background-color: #1e2d3b;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+/* HEADER */
+header {
+    background-color: #2e3a46;
+    padding: 10px 10px;
+}
+header img {
+    width: 70px;
+}
+/* MAIN */
+.container {
+    width: 80%;
+    margin: 100px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.song-card {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% / 5 - 20px);
+    height: 25rem;
+    background-color: #2e3a46;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.image {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.song-title {
+    color: #fff;
+    font-weight: 700;
+}
+.author {
+    margin-top: 20px;
+}
+.author,
+.year {
+    color: #808078;
+}
