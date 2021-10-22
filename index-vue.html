@@ -11,20 +11,29 @@
         <title>Vue Dischi</title>
     </head>
     <body>
-        <header>
-            <img src="./img/spotify-logo.png" alt="">
-        </header>
-
-        <main>
-            <div class="container" id="app">
-                <div class="song-card" v-for="(student,index) in students" :key="index">
-                    <img class="image" :src="student.poster" alt="">
-                    <h3 class="song-title">{{student.title.toUpperCase()}}</h3>
-                    <div class="author">{{student.author}}</div>
-                    <div class="year">{{student.year}}</div>
+        <div id="app">
+            <header>
+                <img src="./img/spotify-logo.png" alt="" @change="genresFind()">
+                <select name="genres" v-model="genreSelected">
+                    <option value="">All</option>
+                    <option value="pop">Pop</option>
+                    <option value="rock">Rock</option>
+                    <!-- <option value="genre" v-for="(genre,index) in genres" :key="index">{{genre}}</option> -->
+                    
+                </select>
+            </header>
+            
+            <main>
+                <div class="container">
+                    <div class="song-card" v-for="(album,index) in albums" :key="index">
+                        <img class="image" :src="album.poster" alt="">
+                        <h3 class="song-title">{{album.title.toUpperCase()}}</h3>
+                        <div class="author">{{album.author}}</div>
+                        <div class="year">{{album.year}}</div>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
