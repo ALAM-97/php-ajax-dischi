@@ -19,7 +19,7 @@
             <div class="container" id="app">
                 <div class="song-card" v-for="(student,index) in students" :key="index">
                     <img class="image" :src="student.poster" alt="">
-                    <h3 class="song-title">{{student.title}}</h3>
+                    <h3 class="song-title">{{student.title.toUpperCase()}}</h3>
                     <div class="author">{{student.author}}</div>
                     <div class="year">{{student.year}}</div>
                 </div>
