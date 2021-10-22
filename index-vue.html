@@ -13,12 +13,10 @@
     <body>
         <div id="app">
             <header>
-                <img src="./img/spotify-logo.png" alt="" @change="genresFind()">
-                <select name="genres" v-model="genreSelected">
+                <img src="./img/spotify-logo.png" alt="">
+                <select name="genres" v-model="genreSelected" @change="filterGenres">
                     <option value="">All</option>
-                    <option value="pop">Pop</option>
-                    <option value="rock">Rock</option>
-                    <!-- <option value="genre" v-for="(genre,index) in genres" :key="index">{{genre}}</option> -->
+                    <option :value="genre" v-for="(genre,index) in genres" :key="index">{{genre}}</option>
                     
                 </select>
             </header>

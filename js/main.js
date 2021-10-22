@@ -5,30 +5,30 @@ const app = new Vue({
         genres: [],
         genreSelected: ""
     },
+    methods: {
+        filterGenres() {
+            axios.get('http://localhost/php-ajax-dischi/api/index.php', {
+                params: {
+                    "genres": this.genreSelected
+                }
+            })
+                .then((resp) => {
+                    // handle success
+                    this.albums = resp.data;
+                })
+        }
+    },
     created() {
         axios.get('http://localhost/php-ajax-dischi/api/index.php')
             .then((resp) => {
                 // handle success
                 this.albums = resp.data;
+                this.albums.forEach((elm) => {
+                    if (!this.genres.includes(elm.genre)) {
+                        this.genres.push(elm.genre)
+                    }
+                    return this.genres;
+                });
             })
-    },
-    methods: {
-        genresFind() {
-            this.albums.forEach(genre => {
-                
-                console.log(genre)
-            });
-        }
-    //     selectGenre() {
-    //         axios.get('http://localhost/php-ajax-dischi/api/index.php' ,{
-    //             params: {
-    //                 genre = this.genres
-    //             }
-    //         }) 
-    //         .then((resp) => {
-    //             // handle success
-    //             console.log(resp.data.genre);
-    //         })
-    //     }
     }
 })

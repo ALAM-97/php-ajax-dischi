@@ -4,4 +4,17 @@
 
     header("Content-Type: application/json");
 
-    echo json_encode($database);
+    if ( !empty($_GET["genres"]) ) {
+        $genre = $_GET["genres"];
+        $databaseFiltered = [];
+
+        foreach($database as $album) {
+            if( $genre == $album["genre"]) {
+                $databaseFiltered[] = $album;
+            }
+        }
+
+        echo json_encode($databaseFiltered);
+    } else {
+        echo json_encode($database);
+    }
